@@ -7,24 +7,26 @@
             Console.WriteLine("dimensiune vector: ");
             int n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Elemente vector: ");
-            int[] v = new int[n];
-
-            for(int i = 0; i < n; i++)
+            int element;
+            int elementAnterior = int.MinValue;
+            bool cresc = true;
+            for (int i = 0; i < n; i++)
             {
-                v[i] = int.Parse(Console.ReadLine());
-            }
-            bool crescator = true;
-                
-            for(int i = 0;i < v.Length - 1; i++)
-            {
-                if (v[i] > v[i+1])
+                element = int.Parse(Console.ReadLine());
+                if(i >= 0 && element <= elementAnterior)
                 {
-                    crescator = false;
-                    break;
+                    cresc = false;
                 }
+                elementAnterior = element;
             }
-            Console.WriteLine($" este crescator? {crescator}");
+            if(cresc )
+            {
+                Console.WriteLine("Secventa crescatoare");
+            }
+            else
+            {
+                Console.WriteLine("Secventa nu este crescatoare");
+            }
         }
     }
 }
